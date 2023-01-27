@@ -39,23 +39,22 @@ while True:
   try: 
     guess = int(input("I am thinking of a number between 1-10, what is the number?: "))
     
-    while guess != answer:
-      if guess > 0 and guess < 11:
-        if guess > answer:
-          print("It's lower")
-          break
-        elif guess < answer:
-          print("It's higher")
-          break
-        attepmts += 1
+    if guess > 0 and guess < 11:
+      if guess > answer:
+        print("It's lower")
+      elif guess < answer:
+        print("It's higher")
       else:
-        raise ValueError
-    print(f"{name} you got it! Great job! It took you {attempts} turn(s)")
+        print(f"{name} you got it! Great job! It took you {attempts} turn(s)")
+        break
+      attempts += 1
+    else:
+      raise ValueError
   except ValueError as err:
     print("Invalid input. Please try again.")
   
-print(f"{name} you got it! Great job! It took you {attempts} turn(s)")
 
+  
 
 # Kick off the program by calling the start_game function.
 start_game()
